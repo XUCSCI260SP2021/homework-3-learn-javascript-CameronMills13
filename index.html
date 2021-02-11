@@ -10,9 +10,21 @@
 
 <body>
    <script>
-    let age = prompt('How old are you?', null);
-
-alert(`You are ${age} years old!`); // You are 100 years old!
+    let valid = false;
+     let cardNum;
+     while (valid == false){
+       prompt ('Type in credit card number', cardNum);
+      CheckNum(cardNum);
+       
+       
+     }
+     alert("Number Checks");
+   function CheckNum(theNum){
+     if(num > 100){
+       valid = true;
+      }
+    }
+     
   </script>
 
 </body>
