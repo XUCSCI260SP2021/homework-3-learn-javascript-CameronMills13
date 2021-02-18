@@ -11,19 +11,55 @@
 <body>
    <script>
     let valid = false;
-     let cardNum;
+     let cardNum = 0;
      while (valid == false){
-       cardNum = prompt ('Type in credit card number');
-       alert(cardNum);
+       cardNum = prompt ('Type in credit card number', 0000);
+       CheckNum(cardNum);
        
        
      }
-     //alert("Number Checks");
-  // function CheckNum(theNum){
-  //   if(num > 100){
-  //     valid = true;
- //     }
- //   }
+     isNumCorrect(cardNum);
+     
+     
+   function CheckNum(theNum){
+     if(theNum > 999999999999 && theNum < 10000000000000000){
+       valid = true;
+      }
+    }
+    function isNumCorrect(num){
+      alert(num);
+      stringNum2 = String(num);
+      stringNum = String(num);
+      let numbers = [];
+      
+      for (let i = 0; i < stringNum.length; i++){
+         numbers[i] = stringNum2.charAt(i);
+      }
+      for (let p = stringNum.length - 2; p >= 0; p--){
+        let temp = numbers[p];
+        numbers[p]  = (temp * 2);
+        
+        p--;
+      }
+      let total = 0;
+      for (let h = 0; h < stringNum.length; h++){
+        
+        if (+numbers[h] > 9){
+          
+          
+          total = +total + 1;
+          total = +(numbers[h] % 10) + +total;
+        }else {
+          total = +total + +numbers[h];
+        }
+      }
+      alert("final total" + total);
+      if (total % 10 == 0){
+        alert("valid number");
+      }else{
+        alert("invalid number");
+      }
+    }
      
   </script>
 
